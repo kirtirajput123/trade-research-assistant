@@ -13,6 +13,8 @@ import {
 } from "lucide-react";
 import "./App.css";
 
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
+
 function App() {
   const [step, setStep] = useState("ask");
 
@@ -42,7 +44,7 @@ function App() {
 
     try {
       const response = await fetch(
-        "http://localhost:5000/api/analyze",
+        `${API_URL}/api/analyze`,
         {
           method: "POST",
           headers: {
@@ -128,7 +130,7 @@ function App() {
       );
 
       const response = await fetch(
-        "http://localhost:5000/api/test",
+        `${API_URL}/api/test`,
         {
           method: "POST",
           headers: {
